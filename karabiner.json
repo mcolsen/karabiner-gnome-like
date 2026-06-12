@@ -1228,12 +1228,25 @@
             "description": "GNOME: terminal Ctrl+Shift shortcuts (C/V copy-paste, T/W tab, N window, F find)",
             "manipulators": [
               {
-                "type": "basic",
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^io\\.alacritty$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^dev\\.warp\\.Warp-Stable$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^org\\.tabby$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
                 "from": {
                   "key_code": "c",
-                  "modifiers": {
-                    "mandatory": ["control", "shift"]
-                  }
+                  "modifiers": { "mandatory": ["control", "shift"] }
                 },
                 "to": [
                   {
@@ -1241,9 +1254,11 @@
                     "modifiers": ["left_command"]
                   }
                 ],
+                "type": "basic"
+              },
+              {
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
@@ -1254,17 +1269,13 @@
                       "^co\\.zeit\\.hyper$",
                       "^com\\.mitchellh\\.ghostty$",
                       "^org\\.tabby$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
-                ]
-              },
-              {
-                "type": "basic",
+                ],
                 "from": {
                   "key_code": "v",
-                  "modifiers": {
-                    "mandatory": ["control", "shift"]
-                  }
+                  "modifiers": { "mandatory": ["control", "shift"] }
                 },
                 "to": [
                   {
@@ -1272,9 +1283,11 @@
                     "modifiers": ["left_command"]
                   }
                 ],
+                "type": "basic"
+              },
+              {
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
@@ -1285,17 +1298,13 @@
                       "^co\\.zeit\\.hyper$",
                       "^com\\.mitchellh\\.ghostty$",
                       "^org\\.tabby$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
-                ]
-              },
-              {
-                "type": "basic",
+                ],
                 "from": {
                   "key_code": "t",
-                  "modifiers": {
-                    "mandatory": ["control", "shift"]
-                  }
+                  "modifiers": { "mandatory": ["control", "shift"] }
                 },
                 "to": [
                   {
@@ -1303,9 +1312,11 @@
                     "modifiers": ["left_command"]
                   }
                 ],
+                "type": "basic"
+              },
+              {
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
@@ -1316,17 +1327,13 @@
                       "^co\\.zeit\\.hyper$",
                       "^com\\.mitchellh\\.ghostty$",
                       "^org\\.tabby$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
-                ]
-              },
-              {
-                "type": "basic",
+                ],
                 "from": {
                   "key_code": "w",
-                  "modifiers": {
-                    "mandatory": ["control", "shift"]
-                  }
+                  "modifiers": { "mandatory": ["control", "shift"] }
                 },
                 "to": [
                   {
@@ -1334,9 +1341,11 @@
                     "modifiers": ["left_command"]
                   }
                 ],
+                "type": "basic"
+              },
+              {
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
@@ -1347,17 +1356,13 @@
                       "^co\\.zeit\\.hyper$",
                       "^com\\.mitchellh\\.ghostty$",
                       "^org\\.tabby$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
-                ]
-              },
-              {
-                "type": "basic",
+                ],
                 "from": {
                   "key_code": "n",
-                  "modifiers": {
-                    "mandatory": ["control", "shift"]
-                  }
+                  "modifiers": { "mandatory": ["control", "shift"] }
                 },
                 "to": [
                   {
@@ -1365,9 +1370,11 @@
                     "modifiers": ["left_command"]
                   }
                 ],
+                "type": "basic"
+              },
+              {
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
@@ -1378,17 +1385,13 @@
                       "^co\\.zeit\\.hyper$",
                       "^com\\.mitchellh\\.ghostty$",
                       "^org\\.tabby$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
-                ]
-              },
-              {
-                "type": "basic",
+                ],
                 "from": {
                   "key_code": "f",
-                  "modifiers": {
-                    "mandatory": ["control", "shift"]
-                  }
+                  "modifiers": { "mandatory": ["control", "shift"] }
                 },
                 "to": [
                   {
@@ -1396,22 +1399,28 @@
                     "modifiers": ["left_command"]
                   }
                 ],
-                "conditions": [
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "GNOME: Ctrl+Click -> Cmd+Click (open link in new tab; right-click via real mouse button)",
+            "manipulators": [
+              {
+                "from": {
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["shift", "option"]
+                  },
+                  "pointing_button": "button1"
+                },
+                "to": [
                   {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^com\\.apple\\.Terminal$",
-                      "^com\\.googlecode\\.iterm2$",
-                      "^io\\.alacritty$",
-                      "^net\\.kovidgoyal\\.kitty$",
-                      "^com\\.github\\.wez\\.wezterm$",
-                      "^dev\\.warp\\.Warp-Stable$",
-                      "^co\\.zeit\\.hyper$",
-                      "^com\\.mitchellh\\.ghostty$",
-                      "^org\\.tabby$"
-                    ]
+                    "modifiers": ["left_command"],
+                    "pointing_button": "button1"
                   }
-                ]
+                ],
+                "type": "basic"
               }
             ]
           },
@@ -1458,9 +1467,7 @@
               {
                 "from": {
                   "key_code": "left_command",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
+                  "modifiers": { "optional": ["any"] }
                 },
                 "to": [
                   {
@@ -1468,11 +1475,7 @@
                     "lazy": true
                   }
                 ],
-                "to_if_alone": [
-                  {
-                    "key_code": "mission_control"
-                  }
-                ],
+                "to_if_alone": [{ "key_code": "mission_control" }],
                 "type": "basic"
               }
             ]
@@ -1483,9 +1486,7 @@
               {
                 "from": {
                   "key_code": "print_screen",
-                  "modifiers": {
-                    "mandatory": ["shift"]
-                  }
+                  "modifiers": { "mandatory": ["shift"] }
                 },
                 "to": [
                   {
@@ -1498,9 +1499,7 @@
               {
                 "from": {
                   "key_code": "print_screen",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
+                  "modifiers": { "optional": ["any"] }
                 },
                 "to": [
                   {
@@ -1514,11 +1513,28 @@
           }
         ]
       },
+      "devices": [
+        {
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": true,
+            "product_id": 171,
+            "vendor_id": 5426
+          },
+          "ignore": false
+        },
+        {
+          "identifiers": {
+            "is_pointing_device": true,
+            "product_id": 171,
+            "vendor_id": 5426
+          },
+          "ignore": false
+        }
+      ],
       "name": "GNOME-like",
       "selected": true,
-      "virtual_hid_keyboard": {
-        "keyboard_type_v2": "ansi"
-      }
+      "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
     }
   ]
 }
