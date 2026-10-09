@@ -4,6 +4,880 @@
       "complex_modifications": {
         "rules": [
           {
+            "description": "GNOME: app-specific Ctrl+H history/replace and VS Code Ctrl+G/M",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.google\\.Chrome$"
+                    ]
+                  }
+                ],
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "y",
+                    "modifiers": ["left_command"]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^org\\.mozilla\\.firefox$"
+                    ]
+                  }
+                ],
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "h",
+                    "modifiers": ["left_command", "left_shift"]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.VSCode$"
+                    ]
+                  }
+                ],
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f",
+                    "modifiers": ["left_command", "left_option"]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.VSCode$"
+                    ]
+                  }
+                ],
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "g",
+                    "modifiers": ["left_control"]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.VSCode$"
+                    ]
+                  }
+                ],
+                "from": {
+                  "key_code": "m",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "m",
+                    "modifiers": ["left_control", "left_shift"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "GNOME: iTerm2 tab selection/reordering, window close, search, zoom and F11",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": ["control", "shift"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "w",
+                    "modifiers": ["left_command", "left_option"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": ["control", "shift"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "w",
+                    "modifiers": ["left_command", "left_shift"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "mandatory": ["control", "shift"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "g",
+                    "modifiers": ["left_command"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": ["control", "shift"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "g",
+                    "modifiers": ["left_command", "left_shift"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": ["control", "shift"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "e",
+                    "modifiers": ["left_command", "left_option", "left_shift"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "page_up",
+                  "modifiers": {
+                    "mandatory": ["control", "shift"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "open_bracket",
+                    "modifiers": ["left_command", "left_option", "left_shift"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "page_down",
+                  "modifiers": {
+                    "mandatory": ["control", "shift"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "close_bracket",
+                    "modifiers": ["left_command", "left_option", "left_shift"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "page_up",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "open_bracket",
+                    "modifiers": ["left_command", "left_shift"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "page_down",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "close_bracket",
+                    "modifiers": ["left_command", "left_shift"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "f11",
+                  "modifiers": {
+                    "mandatory": [],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f",
+                    "modifiers": ["left_control", "left_command"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "f4",
+                  "modifiers": {
+                    "mandatory": ["option"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "w",
+                    "modifiers": ["left_command", "left_shift"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "1",
+                  "modifiers": {
+                    "mandatory": ["option"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "1",
+                    "modifiers": ["left_command"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "2",
+                  "modifiers": {
+                    "mandatory": ["option"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "2",
+                    "modifiers": ["left_command"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "3",
+                  "modifiers": {
+                    "mandatory": ["option"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "3",
+                    "modifiers": ["left_command"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "4",
+                  "modifiers": {
+                    "mandatory": ["option"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "4",
+                    "modifiers": ["left_command"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "5",
+                  "modifiers": {
+                    "mandatory": ["option"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "5",
+                    "modifiers": ["left_command"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "6",
+                  "modifiers": {
+                    "mandatory": ["option"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "6",
+                    "modifiers": ["left_command"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "7",
+                  "modifiers": {
+                    "mandatory": ["option"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "7",
+                    "modifiers": ["left_command"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "8",
+                  "modifiers": {
+                    "mandatory": ["option"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "8",
+                    "modifiers": ["left_command"],
+                    "repeat": false
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "equal_sign",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["shift", "caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "equal_sign",
+                    "modifiers": ["left_command"]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "hyphen",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["shift", "caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "hyphen",
+                    "modifiers": ["left_command"]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "0",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["shift", "caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "0",
+                    "modifiers": ["left_command"]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "GNOME: Ctrl word navigation/deletion and document boundaries in GUI apps",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "left_arrow",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["shift", "caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": ["left_option"]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^io\\.alacritty$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^dev\\.warp\\.Warp-Stable$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^org\\.tabby$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_arrow",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["shift", "caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": ["left_option"]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^io\\.alacritty$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^dev\\.warp\\.Warp-Stable$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^org\\.tabby$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "delete_or_backspace",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["shift", "caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "delete_or_backspace",
+                    "modifiers": ["left_option"]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^io\\.alacritty$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^dev\\.warp\\.Warp-Stable$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^org\\.tabby$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "delete_forward",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["shift", "caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "delete_forward",
+                    "modifiers": ["left_option"]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^io\\.alacritty$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^dev\\.warp\\.Warp-Stable$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^org\\.tabby$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "home",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["shift", "caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": ["left_command"]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^io\\.alacritty$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^dev\\.warp\\.Warp-Stable$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^org\\.tabby$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "end",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["shift", "caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": ["left_command"]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^io\\.alacritty$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^dev\\.warp\\.Warp-Stable$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^org\\.tabby$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "description": "GNOME: Ctrl+<key> acts as ⌘+<key> in GUI apps (terminals keep Ctrl)",
             "manipulators": [
               {
@@ -27,7 +901,7 @@
                   "key_code": "a",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -59,7 +933,7 @@
                   "key_code": "b",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -91,7 +965,7 @@
                   "key_code": "c",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -123,7 +997,7 @@
                   "key_code": "d",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -155,7 +1029,7 @@
                   "key_code": "e",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -187,7 +1061,7 @@
                   "key_code": "f",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -219,7 +1093,7 @@
                   "key_code": "g",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -251,7 +1125,7 @@
                   "key_code": "h",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -283,7 +1157,7 @@
                   "key_code": "i",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -315,7 +1189,7 @@
                   "key_code": "j",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -347,7 +1221,7 @@
                   "key_code": "k",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -379,7 +1253,7 @@
                   "key_code": "l",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -411,7 +1285,7 @@
                   "key_code": "m",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -443,7 +1317,7 @@
                   "key_code": "n",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -475,7 +1349,7 @@
                   "key_code": "o",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -507,7 +1381,7 @@
                   "key_code": "p",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -539,7 +1413,7 @@
                   "key_code": "q",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -571,7 +1445,7 @@
                   "key_code": "r",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -603,7 +1477,7 @@
                   "key_code": "s",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -635,7 +1509,7 @@
                   "key_code": "t",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -667,7 +1541,7 @@
                   "key_code": "u",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -699,7 +1573,7 @@
                   "key_code": "v",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -731,7 +1605,7 @@
                   "key_code": "w",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -763,7 +1637,7 @@
                   "key_code": "x",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -795,7 +1669,7 @@
                   "key_code": "y",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -827,7 +1701,7 @@
                   "key_code": "z",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -859,7 +1733,7 @@
                   "key_code": "1",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -891,7 +1765,7 @@
                   "key_code": "2",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -923,7 +1797,7 @@
                   "key_code": "3",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -955,7 +1829,7 @@
                   "key_code": "4",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -987,7 +1861,7 @@
                   "key_code": "5",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -1019,7 +1893,7 @@
                   "key_code": "6",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -1051,7 +1925,7 @@
                   "key_code": "7",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -1083,7 +1957,7 @@
                   "key_code": "8",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -1115,7 +1989,7 @@
                   "key_code": "9",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -1147,7 +2021,7 @@
                   "key_code": "0",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -1179,7 +2053,7 @@
                   "key_code": "hyphen",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
@@ -1211,12 +2085,140 @@
                   "key_code": "equal_sign",
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   }
                 },
                 "to": [
                   {
                     "key_code": "equal_sign",
+                    "modifiers": ["left_command"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^io\\.alacritty$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^dev\\.warp\\.Warp-Stable$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^org\\.tabby$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "slash",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["shift", "option", "caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "slash",
+                    "modifiers": ["left_command"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^io\\.alacritty$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^dev\\.warp\\.Warp-Stable$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^org\\.tabby$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "comma",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["shift", "option", "caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "comma",
+                    "modifiers": ["left_command"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^io\\.alacritty$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^dev\\.warp\\.Warp-Stable$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^org\\.tabby$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "open_bracket",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["shift", "option", "caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "open_bracket",
+                    "modifiers": ["left_command"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^io\\.alacritty$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^dev\\.warp\\.Warp-Stable$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^org\\.tabby$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "close_bracket",
+                  "modifiers": {
+                    "mandatory": ["control"],
+                    "optional": ["shift", "option", "caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "close_bracket",
                     "modifiers": ["left_command"]
                   }
                 ],
@@ -1246,7 +2248,10 @@
                 ],
                 "from": {
                   "key_code": "c",
-                  "modifiers": { "mandatory": ["control", "shift"] }
+                  "modifiers": {
+                    "mandatory": ["control", "shift"],
+                    "optional": ["caps_lock"]
+                  }
                 },
                 "to": [
                   {
@@ -1275,7 +2280,10 @@
                 ],
                 "from": {
                   "key_code": "v",
-                  "modifiers": { "mandatory": ["control", "shift"] }
+                  "modifiers": {
+                    "mandatory": ["control", "shift"],
+                    "optional": ["caps_lock"]
+                  }
                 },
                 "to": [
                   {
@@ -1304,7 +2312,10 @@
                 ],
                 "from": {
                   "key_code": "t",
-                  "modifiers": { "mandatory": ["control", "shift"] }
+                  "modifiers": {
+                    "mandatory": ["control", "shift"],
+                    "optional": ["caps_lock"]
+                  }
                 },
                 "to": [
                   {
@@ -1333,7 +2344,10 @@
                 ],
                 "from": {
                   "key_code": "w",
-                  "modifiers": { "mandatory": ["control", "shift"] }
+                  "modifiers": {
+                    "mandatory": ["control", "shift"],
+                    "optional": ["caps_lock"]
+                  }
                 },
                 "to": [
                   {
@@ -1362,7 +2376,10 @@
                 ],
                 "from": {
                   "key_code": "n",
-                  "modifiers": { "mandatory": ["control", "shift"] }
+                  "modifiers": {
+                    "mandatory": ["control", "shift"],
+                    "optional": ["caps_lock"]
+                  }
                 },
                 "to": [
                   {
@@ -1391,7 +2408,10 @@
                 ],
                 "from": {
                   "key_code": "f",
-                  "modifiers": { "mandatory": ["control", "shift"] }
+                  "modifiers": {
+                    "mandatory": ["control", "shift"],
+                    "optional": ["caps_lock"]
+                  }
                 },
                 "to": [
                   {
@@ -1410,7 +2430,7 @@
                 "from": {
                   "modifiers": {
                     "mandatory": ["control"],
-                    "optional": ["shift", "option"]
+                    "optional": ["shift", "option", "caps_lock"]
                   },
                   "pointing_button": "button1"
                 },
@@ -1432,7 +2452,7 @@
                   "key_code": "tab",
                   "modifiers": {
                     "mandatory": ["option"],
-                    "optional": ["shift"]
+                    "optional": ["shift", "caps_lock"]
                   }
                 },
                 "to": [
@@ -1448,7 +2468,7 @@
                   "key_code": "grave_accent_and_tilde",
                   "modifiers": {
                     "mandatory": ["option"],
-                    "optional": ["shift"]
+                    "optional": ["shift", "caps_lock"]
                   }
                 },
                 "to": [
@@ -1462,52 +2482,218 @@
             ]
           },
           {
-            "description": "GNOME: tap Win/Super key opens Mission Control (overview)",
+            "description": "GNOME: left Super window tiling, maximize/restore, workspaces, minimize and lock",
             "manipulators": [
               {
+                "type": "basic",
                 "from": {
-                  "key_code": "left_command",
-                  "modifiers": { "optional": ["any"] }
+                  "key_code": "left_arrow",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["caps_lock"]
+                  }
                 },
                 "to": [
                   {
-                    "key_code": "left_command",
-                    "lazy": true
+                    "key_code": "left_arrow",
+                    "modifiers": ["fn", "left_control"],
+                    "repeat": false
                   }
-                ],
-                "to_if_alone": [{ "key_code": "mission_control" }],
-                "type": "basic"
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_arrow",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": ["fn", "left_control"],
+                    "repeat": false
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "up_arrow",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f",
+                    "modifiers": ["fn", "left_control"],
+                    "repeat": false
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "down_arrow",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "r",
+                    "modifiers": ["fn", "left_control"],
+                    "repeat": false
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "page_up",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": ["left_control"],
+                    "repeat": false
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "page_down",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": ["left_control"],
+                    "repeat": false
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "m",
+                    "modifiers": ["left_command"],
+                    "repeat": false
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "q",
+                    "modifiers": ["left_control", "left_command"],
+                    "repeat": false
+                  }
+                ]
               }
             ]
           },
           {
-            "description": "GNOME: PrtSc screenshot (Shift+PrtSc = region)",
+            "description": "GNOME: tap left Super for overview; hold Command without a lazy delay",
             "manipulators": [
               {
                 "from": {
-                  "key_code": "print_screen",
-                  "modifiers": { "mandatory": ["shift"] }
+                  "key_code": "left_command",
+                  "modifiers": { "optional": ["caps_lock"] }
                 },
-                "to": [
-                  {
-                    "key_code": "4",
-                    "modifiers": ["left_command", "left_shift"]
-                  }
-                ],
-                "type": "basic"
-              },
+                "to": [{ "key_code": "left_command" }],
+                "to_if_alone": [{ "key_code": "mission_control" }],
+                "type": "basic",
+                "parameters": { "basic.to_if_alone_timeout_milliseconds": 300 }
+              }
+            ]
+          },
+          {
+            "description": "GNOME: Print opens screenshot UI; Shift+Print captures screen; Alt+Print selects window",
+            "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "print_screen",
-                  "modifiers": { "optional": ["any"] }
+                  "modifiers": {
+                    "mandatory": ["shift"],
+                    "optional": ["control", "caps_lock"]
+                  }
                 },
                 "to": [
                   {
                     "key_code": "3",
-                    "modifiers": ["left_command", "left_shift"]
+                    "modifiers": ["left_command", "left_shift"],
+                    "repeat": false
                   }
-                ],
-                "type": "basic"
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "print_screen",
+                  "modifiers": {
+                    "mandatory": ["option"],
+                    "optional": ["control", "caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "4",
+                    "modifiers": ["left_command", "left_shift"],
+                    "repeat": false
+                  },
+                  {
+                    "key_code": "spacebar",
+                    "repeat": false
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "print_screen",
+                  "modifiers": {
+                    "mandatory": [],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "5",
+                    "modifiers": ["left_command", "left_shift"],
+                    "repeat": false
+                  }
+                ]
               }
             ]
           }
@@ -1528,6 +2714,14 @@
             "is_pointing_device": true,
             "product_id": 171,
             "vendor_id": 5426
+          },
+          "ignore": false
+        },
+        {
+          "identifiers": {
+            "is_pointing_device": true,
+            "product_id": 50475,
+            "vendor_id": 1133
           },
           "ignore": false
         }
